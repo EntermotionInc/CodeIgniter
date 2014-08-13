@@ -12,14 +12,15 @@ class Syscheck extends CI_Controller
     {
         try {
             $this->load->library('SyscheckClass');
-            $now = $this->SyscheckClass->doCheck()->now;
+            // @@see デフォルトだとオブジェクト名は小文字
+            $now = $this->syscheckclass->doCheck()->now;
             
             $render = 
                 array(
                     'now' => $now,
                 );
             
-            $this->load->view('syscheck', $render)
+            $this->load->view('syscheck', $render);
             
         } catch (Exception $e) {
             print $e->getMessage();
