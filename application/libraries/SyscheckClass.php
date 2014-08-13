@@ -2,9 +2,9 @@
 class SyscheckClass
 {
     protected $c;
-    public function __construct(&$c)
+    public function __construct()
     {
-        $this->c = $c;
+        $this->c =& get_instance();
     }
     
     /**
